@@ -1,0 +1,110 @@
+/***-  General  Styles  --***/
+
+.App {
+  text-align: center;
+  height: 100vh;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  color:#ce255e;
+}
+
+/***-- Header Styles --***/
+
+.app-header {
+  background-color: #ce255e;
+  height: 60px;
+  padding-top: 5px;
+}
+
+.header-title {
+  font-size: 1.5em;
+  color: #fff;
+}
+
+/***-- Off-Canvas Styles --***/
+
+/***
+Pure CSS off-canvas menu with flexbox 
+inspired by https://codepen.io/MadeByMike/pen/GcLxm 
+***/
+
+.off-canvas {
+  display: flex;
+  max-height: 100vh;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+
+.hamburger-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  display: block;
+  width: 42px;
+  height: 42px;
+  font-size: 32px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+.hamburger-checkbox:checked ~ .sidebar {
+  flex-shrink: 1;
+  padding-top: 1.5em;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  flex: 1 500 auto;
+  overflow: hidden;
+  background: #222;
+  transition: all .5s;
+  color: #fff;
+}
+
+/* Sidebar list Styles */
+.menu {
+  list-style: none;
+} 
+.menu  li {
+  padding: 16px 32px;
+  border-top: 1px solid darken(#444, 10%);
+}
+
+.menu li last-child {
+  border-bottom: 1px solid darken(#444, 10%);
+}
+
+/* Map Body Styles */
+
+.map-body {
+  flex: 1 1 100%;
+  transition: all .3s;
+}
+
+/***-- Footer Styles --***/
+
+.app-footer {
+  background-color: #ce255e;
+  height: 46px;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.footer-title {
+  font-size: 1em;
+  color: #fff;
+  padding: 10px;
+}
+
