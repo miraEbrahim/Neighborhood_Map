@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import Map from './components/Map/Map';
 //import OffCanvas from './components/Layout/OffCanvas';
@@ -15,10 +15,14 @@ import { cafes } from './components/Map/MapData';
 
 library.add(faSearch, faBars, faTimes , faDirections);
 
-class App extends Component {
-  state = {
-    cafes: cafes,
-    map:''
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        cafes: cafes,
+        map:'',
+        marker:''
+    };
 }
   render() {
     return (

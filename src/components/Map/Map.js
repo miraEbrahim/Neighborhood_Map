@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
+//import ReactDOM from 'react-dom';
 import scriptLoader from 'react-async-script-loader';
 import { GoogleKey, Putney, cafes } from './MapData';
 import {mapStyles } from './MapStyles';
 
 
-class Map extends Component{
-    state = {
-        cafes: cafes,
-        map:''
+class Map extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            cafes: cafes,
+            map:'',
+            marker:''
+        };
     }
+
     componentWillReceiveProps({isScriptLoadSucceed}){
         if (isScriptLoadSucceed) {
             const map = new window.google.maps.Map(document.getElementById('map'), {
@@ -19,7 +25,7 @@ class Map extends Component{
             this.setState({map:map});
 
             const  infowindow =  new window.google.maps.InfoWindow({});
-            var marker, count;
+            let  marker, count;
             for (count = 0; count < cafes.length; count++) {
                 marker = new window.google.maps.Marker({
                   position: new window.google.maps.LatLng(cafes[count].latitude, cafes[count].longitude),
