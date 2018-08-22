@@ -1,14 +1,13 @@
 import React from 'react';
-import './App.css';
-import Map from './components/Map/Map';
-//import OffCanvas from './components/Layout/OffCanvas';
+import scriptLoader from 'react-async-script-loader';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSearch, faBars, faTimes, faDirections } from '@fortawesome/free-solid-svg-icons'; 
-import { Button } from 'reactstrap';
+import { faSearch, faBars, faTimes, faDirections } from '@fortawesome/free-solid-svg-icons';
+//import { Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ListView from './components/Layout/ListView';
-import { cafes } from './components/Map/MapData';
-//import ListView from './components/Layout/ListView';
+import { GoogleKey, Putney, cafes } from './components/Map/MapData';
+import './App.css';
+import { mapStyles } from './components/Map/MapStyles';
 
 
 
@@ -17,13 +16,70 @@ library.add(faSearch, faBars, faTimes , faDirections);
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
         cafes: cafes,
-        map:'',
-        marker:''
+        map:"",
+        marker:""
     };
 }
+
+componentWillReceiveProps({isScriptLoadSucceed}){
+  if (isScriptLoadSucceed) {
+      const map = new window.google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: Putney,
+          styles: mapStyles
+      });
+      this.setState({map:map});
+
+      const  infowindow =  new window.google.maps.InfoWindow({});
+      let  marker, count;
+      let markerArray = [];
+      
+      /////////////
+      for (count = 0; count < cafes.length; count++) {
+          marker = new window.google.maps.Marker({
+            position: new window.google.maps.LatLng(cafes[count].latitude, cafes[count].longitude),
+            icon: {
+              path: window.google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+              scale: 5,
+              strokeColor: '#ce255e'
+            },
+            map: map,
+            title: this.state.cafes[count].name
+          });
+
+          //////////////
+            window.google.maps.event.addListener(marker, 'click', (function (marker, count) {
+            return function () {
+              infowindow.setContent(`<div tabIndex="0" class="infoWindow">
+              <h4>${cafes[count].name}</h4>
+              <p>${cafes[count].cafeStreetAddress}</p>
+              <p>${cafes[count].cafeCity}${cafes[count].cafeZipCode}</p>
+              <a href=${cafes[count].URL}>Click Here For More Info</a>
+              
+              </div>` );
+              infowindow.open(map, marker);
+            }
+            /////////////////
+          })(marker, count))
+        markerArray.push({id: cafes[count].id, marker: marker});
+        };
+
+        console.log(`marker array is ${markerArray}`);
+
+        console.log(markerArray);
+
+        console.log(markerArray[0].id, markerArray[0].marker)
+     
+  }
+  else{
+      alert("script not loaded");
+      this.setState({requestWasSuccessful: false})
+  }
+}
+
   render() {
     return (
       <div className="App">
@@ -33,25 +89,15 @@ class App extends React.Component {
           <label for="hamburger" className="hamburger-label" role="button" aria-labelledby="menu"><FontAwesomeIcon icon="bars"/></label>
           <nav id="list-toggle" role="list" className="sidebar" onClick={this.toggleList}>
                     <div className="list-view">
-                        <input 
-                            type="text" 
-                            placeholder="Filter by Business Name" 
-                            className="search-cafes" 
-                            role="search" 
-                            aria-labelledby="search"
-                            id="search-bar"
-                        
-                        />
-                        <Button outline color="danger">Search
-                        <FontAwesomeIcon icon="search"/>
-                        </Button>
-                        <ListView cafes={this.state.cafes} />
+                        <ListView cafes={this.state.cafes}  />
                         </div>
                        
                     
             </nav>
           <main role="main" className="map-body">
-          <Map />
+          <div>
+                <div id="map" style={{height: "100vh"}}></div>
+            </div>
           </main>
         </div>
         <div className="app-footer"><h4 className="footer-title"> my react</h4></div>
@@ -60,4 +106,6 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default scriptLoader(
+  [`https://maps.googleapis.com/maps/api/js?key=${GoogleKey}`]
+)(App)

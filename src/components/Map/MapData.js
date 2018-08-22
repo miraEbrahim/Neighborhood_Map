@@ -3,9 +3,13 @@
 export const GoogleKey = 'AIzaSyAvvgbXQPqd-UKFbNBjvpxUsAXtX-1LXow';
 
 
-//My Neighbourhood Latitude and Longitude Stored as an Object 
-export const Putney = {lat: 51.461014, lng: -0.217180};
+//My Area Latitude and Longitude Stored as an Object 
+export const homeArea = {lat:51.456325, lng: -0.241421};
 
+//My Neighbourhood Latitude and Longitude Stored as an Object 
+export const Putney = { lat: 51.461014, lng: -0.217180 };
+export const Hammersmith = { lat: 51.493685, lng: -0.224914 };
+export const Fulham = { lat: 51.480859, lng: -0.194123 };
 
 //Google Map Width stored as an object 
 export const MapWidth = {
