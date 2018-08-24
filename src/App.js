@@ -82,7 +82,7 @@ class App extends React.Component {
   clickedMarker = (cafeName) => {
     console.log('name is: ');
     console.log(cafeName);
-    //loop through lall marker
+    //loop througss
   } 
 
   render(){
