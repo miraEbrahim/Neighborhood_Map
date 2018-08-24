@@ -116,3 +116,4 @@ export const cafes = [
         "URL": "https://goo.gl/maps/1RfcDSRoiw82"
     }
 ];
+

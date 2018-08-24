@@ -1,48 +1,51 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+//import { Button } from 'reactstrap';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 class ListView extends Component {
-
+    state = {
+        filtered: this.props.cafes
+    }
     filterCafes = (event) => { 
-        let cafeSearch = event.target.value;
+        let cafeSearch = event.target.value.toUpperCase();
         let cafeDetails = this.props.cafes;
+        let filteredArray = [];
         for (let i = 0; i < cafeDetails.length; i++) {
-            if (cafeDetails[i].name.includes(cafeSearch)) {
+            if (cafeDetails[i].name.toUpperCase().includes(cafeSearch)) {
             console.log('hey we got a match');
-
+            filteredArray.push({id: cafeDetails[i].id, name: cafeDetails[i].name});
             }
         console.log(cafeDetails[i].name);
-
         }
-
+        this.setState({
+            filtered:filteredArray
+        });
     }
+
     render (){
         return (
             <div className="list-view">
-                        <input 
-                            type="text" 
-                            placeholder="Filter by Business Name" 
-                            onChange={(event) => this.filterCafes(event)}
-                            className="search-cafes" 
-                            role="search" 
-                            aria-labelledby="search"
-                            id="search-bar"
+                <input 
+                    id="search-bar"
+                    type="text" 
+                    placeholder="Search by Name" 
+                    onChange={(event) => this.filterCafes(event)}                        
+                    className="search-cafes" 
+                    role="search" 
+                    aria-labelledby="search"
+                />
                         
-                        />
-                        <Button outline color="danger">Search
-                        <FontAwesomeIcon icon="search"/>
-                        </Button>
-                        <ol className="list-view">
-            
-            {this.props.cafes.map((cafe) => (
-                <li key={cafe.id} className="list-view-item">
-                    <div className="cafe-details">
-                        {cafe.name}
-                    </div>
-                </li>
-            ))}
-        </ol>
+                <ol> 
+                    {this.state.filtered.map((cafe) => (
+                        <li key={cafe.id}
+                            // onClick={(event) => this.props.clickedMarker(event)}
+                            onClick={() => this.props.clickedMarker(cafe.name)} style={{cursor: 'pointer'}}
+                        >
+                            <p>{cafe.name }</p>
+                        </li>
+                    ))}
+                </ol>
            </div>
         )
     }
