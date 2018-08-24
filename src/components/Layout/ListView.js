@@ -21,6 +21,7 @@ class ListView extends Component {
         this.setState({
             filtered:filteredArray
         });
+        this.props.filterMarker(filteredArray);
     }
 
     render (){
@@ -40,7 +41,7 @@ class ListView extends Component {
                     {this.state.filtered.map((cafe) => (
                         <li key={cafe.id}
                             // onClick={(event) => this.props.clickedMarker(event)}
-                            onClick={() => this.props.clickedMarker(cafe.name)} style={{cursor: 'pointer'}}
+                            onClick={() => this.props.clickedMarker(cafe.name, cafe.id)} style={{cursor: 'pointer'}}
                         >
                             <p>{cafe.name }</p>
                         </li>

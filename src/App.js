@@ -20,7 +20,8 @@ class App extends React.Component {
     this.state = {
         cafes: cafes,
         map:"",
-        marker:""
+        marker:"",
+        markerArray:[]
     };
   }
 
@@ -37,7 +38,6 @@ class App extends React.Component {
 
       let  marker, count;
       let markerArray = [];
-
       for (count = 0; count < cafes.length; count++) {
           marker = new window.google.maps.Marker({
             position: new window.google.maps.LatLng(cafes[count].latitude, cafes[count].longitude),
@@ -57,7 +57,7 @@ class App extends React.Component {
                     <h4>${cafes[count].name}</h4>
                     <p>${cafes[count].cafeStreetAddress}</p>
                     <p>${cafes[count].cafeCity}${cafes[count].cafeZipCode}</p>
-                    <a href=${cafes[count].URL}>Click Here For More Info</a>
+                    <p><a href=${cafes[count].mapDirection}></a></p>
                   </div>
                 `
               );
@@ -72,17 +72,42 @@ class App extends React.Component {
         console.log(markerArray);
 
         console.log(markerArray[0].id, markerArray[0].marker)
+        this.setState({markerArray: markerArray});
     }
     else{
       alert("script not loaded");
       this.setState({requestWasSuccessful: false});
+
     }
   }
 
-  clickedMarker = (cafeName) => {
-    console.log('name is: ');
-    console.log(cafeName);
-    //loop througss
+  
+  filterMarker = (filteredList) => {
+    console.log('inside filterMArker: ');
+    // console.log(cafeName);
+    console.log(this.state.markerArray[0].id, this.state.markerArray[0].marker.visible);
+    // this.state.markerArray[0].marker.visible = false;
+    console.log(filteredList);
+   
+    let listArray = filteredList.map( (object) => object.id );
+    console.log(listArray);
+
+    let markers = this.state.markerArray;
+    for (let l = 0; l < markers.length; l++ ){
+      if (listArray.includes(markers[l].id) ) {
+      console.log(markers[l].id);
+      markers[l].marker.setVisible(true);
+    }
+else {markers[l].marker.setVisible(false);}
+  }
+  } 
+
+  clickedMarker = (cafeName, id) => {
+    // console.log('name is: ');
+    // console.log(cafeName);
+    console.log(this.state.markerArray[0].id, this.state.markerArray[0].marker.visible);
+    // this.state.markerArray[0].marker.visible = false;
+    console.log(cafeName, id);
   } 
 
   render(){
@@ -94,7 +119,7 @@ class App extends React.Component {
           <label for="hamburger" className="hamburger-label" role="button" aria-labelledby="menu"><FontAwesomeIcon icon="bars"/></label>
           <nav id="list-toggle" role="list" className="sidebar" onClick={this.toggleList}>
             <div className="list-view">
-              <ListView cafes={this.state.cafes} clickedMarker={this.clickedMarker} />
+              <ListView cafes={this.state.cafes} clickedMarker={this.clickedMarker} filterMarker={this.filterMarker}  />
             </div>
           </nav>
           <main role="main" className="map-body">
