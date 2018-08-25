@@ -2,21 +2,8 @@
 //Google Map API Key
 export const GoogleKey = 'AIzaSyAvvgbXQPqd-UKFbNBjvpxUsAXtX-1LXow';
 
-
-//https://api.foursquare.com/v2/venues/search?ll=5.4563251,-0.241421&radius=10000&client_id=J5W2ZXM0AS1ETS4COULHK1L45PVOWVURRMRZBZYC1WMFHZNP&client_secret=SVFNE2PHXCHESPKQZYONPJ4EUKZEJXVYOZ3L0EACPTPU4WE3&v=20180708
-//https://api.foursquare.com/v2/venues/4b272123f964a520da8424e3/tips?client_id=J5W2ZXM0AS1ETS4COULHK1L45PVOWVURRMRZBZYC1WMFHZNP&client_secret=SVFNE2PHXCHESPKQZYONPJ4EUKZEJXVYOZ3L0EACPTPU4WE3&v=20111018
-//My Area Latitude and Longitude Stored as an Object 
-export const homeArea = {lat:5.4563251, lng: -0.241421};
-
 //My Neighbourhood Latitude and Longitude Stored as an Object 
 export const Putney = { lat: 51.461014, lng: -0.217180 };
-export const Hammersmith = { lat: 51.493685, lng: -0.224914 };
-export const Fulham = { lat: 51.480859, lng: -0.194123 };
-
-//Google Map Width stored as an object 
-export const MapWidth = {
-    width: "800vh"
-};
 
 //Cafes location Array
 export const cafes = [
@@ -90,20 +77,6 @@ export const cafes = [
         "VenueID" : "4ebf15afd5fb50d70f350c59",
         "extraInfo": ""
     },
-    // {
-    //     "id": "C6",
-    //     "name": " Smugglers Cafe",
-    //     "type": "Cafe",
-    //     "latitude": 51.467574,
-    //     "longitude": -0.220106,
-    //     "cafeStreetAddress": "58 Lower Richmond Rd",
-    //     "cafeCity":"London ",
-    //     "cafeZipCode":"SW15 1JT",
-    //     "mapDirection": "<a href='https://goo.gl/maps/C6ZBD7NhmmT2'>Get Directions</a>",
-    //     "imageURL": "<a href='https://goo.gl/maps/sS8r1rD7wER2'></a>",
-    //     "extraInfo": ""
-    // },
-
     {
         "id": "C6",
         "name": "Cafe Parisienne",

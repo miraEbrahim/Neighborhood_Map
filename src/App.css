@@ -18,7 +18,7 @@ a {
 .app-header {
   background-color: #ce255e;
   height: 60px;
-  padding-top: 5px;
+  padding: 5px;
 }
 
 .header-title {
@@ -130,3 +130,9 @@ inspired by https://codepen.io/MadeByMike/pen/GcLxm
   padding: 10px;
 }
 
+@media only screen and (max-width: 767px) {
+  .header-title {
+    font-size: 0.85em;
+    padding-top: 15px;
+  }
+}
