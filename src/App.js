@@ -116,7 +116,7 @@ class App extends React.Component {
             </div>
           </nav>
           <main role="main" className="map-body">
-            <div id="map"></div>
+            <div id="map" role="region"></div>
           </main>
         </div>
         <div className="app-footer">
