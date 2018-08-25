@@ -3,8 +3,10 @@
 export const GoogleKey = 'AIzaSyAvvgbXQPqd-UKFbNBjvpxUsAXtX-1LXow';
 
 
+//https://api.foursquare.com/v2/venues/search?ll=5.4563251,-0.241421&radius=10000&client_id=J5W2ZXM0AS1ETS4COULHK1L45PVOWVURRMRZBZYC1WMFHZNP&client_secret=SVFNE2PHXCHESPKQZYONPJ4EUKZEJXVYOZ3L0EACPTPU4WE3&v=20180708
+//https://api.foursquare.com/v2/venues/4b272123f964a520da8424e3/tips?client_id=J5W2ZXM0AS1ETS4COULHK1L45PVOWVURRMRZBZYC1WMFHZNP&client_secret=SVFNE2PHXCHESPKQZYONPJ4EUKZEJXVYOZ3L0EACPTPU4WE3&v=20111018
 //My Area Latitude and Longitude Stored as an Object 
-export const homeArea = {lat:51.456325, lng: -0.241421};
+export const homeArea = {lat:5.4563251, lng: -0.241421};
 
 //My Neighbourhood Latitude and Longitude Stored as an Object 
 export const Putney = { lat: 51.461014, lng: -0.217180 };
@@ -28,7 +30,9 @@ export const cafes = [
         "cafeCity":"London ",
         "cafeZipCode":"SW15 6TD",
         "mapDirection": "<a href='https://goo.gl/maps/RfogWdvZ89K2'>Get Directions</a>",
-        "imageURL": "<a href='https://goo.gl/maps/jHmUDqUb6U92'></a>"
+        "imageURL": "<a href='https://goo.gl/maps/jHmUDqUb6U92'></a>",
+        "VenueID": "4c7cc27e3e90a1cdfb5243be",
+        "extraInfo": "",
     },
     {
         "id": "C2",
@@ -40,7 +44,9 @@ export const cafes = [
         "cafeCity":"London ",
         "cafeZipCode":"SW6 3UB",
         "mapDirection": "<a href='https://goo.gl/maps/RdeLb7nT2K22'>Get Directions</a>",
-        "imageURL": "<a href='https://goo.gl/maps/qvkq4qBN5tn'></a>"
+        "imageURL": "<a href='https://goo.gl/maps/qvkq4qBN5tn'></a>",
+        "VenueID": "4c78016e97028cfa4e4dd6fe",
+        "extraInfo": ""
     },
     {
         "id": "C3",
@@ -52,7 +58,9 @@ export const cafes = [
         "cafeCity":"London ",
         "cafeZipCode":"SW15 2SP",
         "mapDirection": "<a href='https://goo.gl/maps/KcLqQqLvxh52'>Get Directions</a>",
-        "imageURL": "<a href='https://goo.gl/maps/WkqxF1wFLev'></a>"
+        "imageURL": "<a href='https://goo.gl/maps/WkqxF1wFLev'></a>",
+        "VenueID" : "4b9fe98af964a520d54937e3",
+        "extraInfo": ""
     },
     {
         "id": "C4",
@@ -64,7 +72,9 @@ export const cafes = [
         "cafeCity":"London ",
         "cafeZipCode":"SW15 1SN",
         "mapDirection": "<a href='https://goo.gl/maps/vazMns9n5DP2'>Get Directions</a>",
-        "imageURL": "<a href='https://goo.gl/maps/rzBvABMoi4A2'></a>"
+        "imageURL": "<a href='https://goo.gl/maps/rzBvABMoi4A2'></a>",
+        "VenueID": "559b959f498e191eb0698efa",
+        "extraInfo": ""
     },
     {
         "id": "C5",
@@ -76,23 +86,26 @@ export const cafes = [
         "cafeCity":"London ",
         "cafeZipCode":"SW15 6SG",
         "mapDirection": "<a href='https://goo.gl/maps/U44bLMrbN9w'>Get Directions</a>",
-        "imageURL": "<a href='https://goo.gl/maps/j2JVhZKQz9n'></a>"
+        "imageURL": "<a href='https://goo.gl/maps/j2JVhZKQz9n'></a>",
+        "VenueID" : "4ebf15afd5fb50d70f350c59",
+        "extraInfo": ""
     },
-    {
-        "id": "C6",
-        "name": " Smugglers Cafe",
-        "type": "Cafe",
-        "latitude": 51.467574,
-        "longitude": -0.220106,
-        "cafeStreetAddress": "58 Lower Richmond Rd",
-        "cafeCity":"London ",
-        "cafeZipCode":"SW15 1JT",
-        "mapDirection": "<a href='https://goo.gl/maps/C6ZBD7NhmmT2'>Get Directions</a>",
-        "imageURL": "<a href='https://goo.gl/maps/sS8r1rD7wER2'></a>"
-    },
+    // {
+    //     "id": "C6",
+    //     "name": " Smugglers Cafe",
+    //     "type": "Cafe",
+    //     "latitude": 51.467574,
+    //     "longitude": -0.220106,
+    //     "cafeStreetAddress": "58 Lower Richmond Rd",
+    //     "cafeCity":"London ",
+    //     "cafeZipCode":"SW15 1JT",
+    //     "mapDirection": "<a href='https://goo.gl/maps/C6ZBD7NhmmT2'>Get Directions</a>",
+    //     "imageURL": "<a href='https://goo.gl/maps/sS8r1rD7wER2'></a>",
+    //     "extraInfo": ""
+    // },
 
     {
-        "id": "C7",
+        "id": "C6",
         "name": "Cafe Parisienne",
         "type": "Cafe",
         "latitude": 51.461578711507386,
@@ -101,10 +114,12 @@ export const cafes = [
         "cafeCity":"London ",
         "cafeZipCode":"SW11 1JR",
         "mapDirection": "<a href='https://goo.gl/maps/x3L46FgDAC92'>Get Directions</a>",
-        "URL": `https://goo.gl/maps/jHmUDqUb6U92`
+        "URL": `https://goo.gl/maps/jHmUDqUb6U92`,
+        "VenueID" : "4fd09d28e4b0da17b03a3264",
+        "extraInfo": ""
     },
     {
-        "id": "C8",
+        "id": "C7",
         "name": "Ground Coffee Society",
         "type": "Cafe",
         "latitude": 51.467227,
@@ -113,7 +128,9 @@ export const cafes = [
         "cafeCity":"London ",
         "cafeZipCode":"SW15 1ET",
         "mapDirection": "<a href='https://goo.gl/maps/wfSwoMqmZ4F2'>Get Directions</a>",
-        "URL": "https://goo.gl/maps/1RfcDSRoiw82"
+        "URL": "https://goo.gl/maps/1RfcDSRoiw82",
+        "extraInfo": "",
+        "VenueID" : "4b546704f964a520f8b927e3",
     }
 ];
 
