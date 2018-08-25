@@ -71,13 +71,31 @@ inspired by https://codepen.io/MadeByMike/pen/GcLxm
   transition: all .5s;
 }
 
-.sidebar p {
+.sidebar h6 {
   color: #fff;
   margin: 0;
   padding: 0;
 } 
 
-.sidebar p:hover {
+.sidebar h6:hover {
+  color: #ce255e;
+}
+
+.sidebar p {
+  color: #fff;
+}
+
+.fa-span {
+  color: #ce255e;
+}
+
+.fa-p{
+  font-size: 42px;
+}
+
+.price-power{
+  font-size: 18px;
+  text-transform: uppercase;
   color: #ce255e;
 }
 /* Map Body Styles */

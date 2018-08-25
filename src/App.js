@@ -1,7 +1,8 @@
 import React from 'react';
 import scriptLoader from 'react-async-script-loader';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSearch, faBars, faTimes, faDirections } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faBars, faTimes, faDirections, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 //import { Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ListView from './components/Layout/ListView';
@@ -12,7 +13,7 @@ import { mapStyles } from './components/Map/MapStyles';
 
 
 
-library.add(faSearch, faBars, faTimes , faDirections);
+library.add( fab, faSearch, faBars, faTimes , faDirections, faMoneyBill );
 
 class App extends React.Component {
   constructor(props) {
@@ -156,6 +157,10 @@ else {markers[l].marker.setVisible(false);
           <nav id="list-toggle" role="list" className="sidebar" onClick={this.toggleList}>
             <div className="list-view">
               <ListView cafes={this.state.cafes} clickedMarker={this.clickedMarker} filterMarker={this.filterMarker}  />
+            </div>
+            <div>
+              <h2 className="price-power"> Pricing By: </h2>
+              <p className="fa-p"><FontAwesomeIcon icon={['fab', 'foursquare']}/></p>
             </div>
           </nav>
           <main role="main" className="map-body">

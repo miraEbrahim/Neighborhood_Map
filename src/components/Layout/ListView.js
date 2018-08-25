@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import { Button } from 'reactstrap';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 class ListView extends Component {
@@ -108,16 +108,9 @@ class ListView extends Component {
                         
                 <ol> 
                     {this.state.filtered.map((cafe) => (
-                        <li key={cafe.id}
-                            // onClick={(event) => this.props.clickedMarker(event)}
-                            onClick={() => this.props.clickedMarker(cafe.name, cafe.id)} style={{cursor: 'pointer'}}
-                            //onmouse over 
-                        >
-                            <p>{cafe.name }</p>
-                            <p>{this.state.extraData} hello {cafe.extraInfo}</p>
-                            <p>Price: {cafe.extraInfo}</p>
-
-
+                        <li key={cafe.id} onClick={() => this.props.clickedMarker(cafe.name, cafe.id)} style={{cursor: 'pointer'}}>
+                            <h6>{cafe.name }</h6>
+                            <p><span className="fa-span"><FontAwesomeIcon icon="money-bill"/> </span>{cafe.extraInfo} </p>
                         </li>
                     ))}
                 </ol>
