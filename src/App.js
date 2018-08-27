@@ -128,9 +128,9 @@ class App extends React.Component {
             <div id="map" role="application"></div>
           </main>
         </div>
-        <div className="app-footer">
+        <footer className="app-footer">
           <h4 className="footer-title"> Maryam Ebrahim @Udacity FEND Project </h4>
-        </div>
+        </footer>
       </div>
     );
   }
