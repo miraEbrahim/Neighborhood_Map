@@ -106,4 +106,3 @@ export const cafes = [
         "VenueID" : "4b546704f964a520f8b927e3",
     }
 ];
-

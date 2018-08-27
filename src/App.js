@@ -71,7 +71,8 @@ class App extends React.Component {
         this.setState({markerArray: markerArray});
     }
     else{
-      alert("script not loaded");
+      //Map Error handeling
+      console.log("Opps,,, Cann't Load Google Map!");
       this.setState({requestWasSuccessful: false});
 
     }
@@ -116,7 +117,7 @@ class App extends React.Component {
             </div>
           </nav>
           <main role="main" className="map-body">
-            <div id="map" role="region"></div>
+            <div id="map" role="application"></div>
           </main>
         </div>
         <div className="app-footer">
