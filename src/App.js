@@ -50,7 +50,6 @@ class App extends React.Component {
             map: map,
             title: this.state.cafes[count].name
           });
-
           window.google.maps.event.addListener(marker, 'click', (function (marker, count) {
             return function () {
               infowindow.setContent(
@@ -101,7 +100,7 @@ class App extends React.Component {
       }
     }
   }
-
+  //handel map error
   componentDidMount(){
     window.gm_authFailure = function() {
       alert("Google MAPS failed to load")
