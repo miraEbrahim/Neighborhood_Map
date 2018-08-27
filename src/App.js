@@ -70,12 +70,14 @@ class App extends React.Component {
         };
         this.setState({markerArray: markerArray});
     }
-    else{
+    else {
       //logging Map Error handeling 
+      alert("Opps,,, Cann't Load Google Map!");
       console.log("Opps,,, Cann't Load Google Map!");
       this.setState({requestWasSuccessful: false});
 
     }
+    
   }
 
   filterMarker = (filteredList) => {
@@ -97,6 +99,13 @@ class App extends React.Component {
       {
         window.google.maps.event.trigger(marker[m].marker, 'click');
       }
+    }
+  }
+
+  componentDidMount(){
+    window.gm_authFailure = function() {
+      alert("Google MAPS failed to load")
+      console.log("Google MAPS failed to load")
     }
   }
 

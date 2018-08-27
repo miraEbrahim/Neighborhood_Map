@@ -106,3 +106,13 @@ export const cafes = [
         "VenueID" : "4b546704f964a520f8b927e3",
     }
 ];
+
+export const C1_ID = "4c7cc27e3e90a1cdfb5243be";
+export const C2_ID = "4c78016e97028cfa4e4dd6fe";
+export const C3_ID = "4b9fe98af964a520d54937e3";
+export const C4_ID = "559b959f498e191eb0698efa";
+export const C5_ID = "4ebf15afd5fb50d70f350c59";
+export const C6_ID = "4fd09d28e4b0da17b03a3264";
+export const C7_ID = "4b546704f964a520f8b927e3";
+export const AUTH_TOKEN = "BUAOGTNXZHKAOS4JOYOMGANFSE54NV2WAS2HJMFF51Q2WAVG";
+export const VERSION = "20180825";
