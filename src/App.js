@@ -71,7 +71,7 @@ class App extends React.Component {
         this.setState({markerArray: markerArray});
     }
     else{
-      //Map Error handeling
+      //logging Map Error handeling 
       console.log("Opps,,, Cann't Load Google Map!");
       this.setState({requestWasSuccessful: false});
 
