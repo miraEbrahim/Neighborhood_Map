@@ -40,7 +40,7 @@ inspired by https://codepen.io/MadeByMike/pen/GcLxm
   opacity: 0;
 }
 
-.hamburger-label {
+.hamburger {
   position: absolute;
   top: 10px;
   left: 10px;
