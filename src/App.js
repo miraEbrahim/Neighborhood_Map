@@ -47,6 +47,7 @@ class App extends React.Component {
               scale: 5,
               strokeColor: '#ce255e'
             },
+            animation: window.google.maps.Animation.DROP,
             map: map,
             title: this.state.cafes[count].name
           });
