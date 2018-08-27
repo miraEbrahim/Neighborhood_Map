@@ -5,8 +5,7 @@ import { AUTH_TOKEN, C2_ID, C1_ID, C3_ID, C4_ID, C5_ID, C6_ID, C7_ID, VERSION } 
 
 class ListView extends Component {
     state = {
-        filtered: this.props.cafes,
-        // extraData: "nothing yet"
+        filtered: this.props.cafes
     }
     filterCafes = (event) => { 
         let cafeSearch = event.target.value.toUpperCase();
@@ -22,54 +21,60 @@ class ListView extends Component {
         });
         this.props.filterMarker(filteredArray);
     }
-
+    keyPress(target,item,e) {
+        if(item.charCode===13){
+         this.listItem(target,e)
+       }
+     }
+    
     componentWillMount () {
         let newFilteredData = this.state.filtered;
         //Fetch venue pricing range from fourquare using each venues id
         //Foursquare Get Details of a Venue requres venue id for each one seperatly, tried putting them on an array but it didnt accept its
+        
         //Cafe Id C1
-        fetch(`https://api.foursquare.com/v2/venues/${C1_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
+        fetch(`https://api.fourquare.com/v2/venues/${C1_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
         .then(response => response.json())
         .then(data => newFilteredData[0].extraInfo = data.response.venue.price.message )
-        //.then(data => this.setState({ filtered: newFilteredData }))
+        .then(data => this.setState({ filtered: newFilteredData }))
         .catch(error => console.log('parsing faild',error));
         //Cafe Id C2
         fetch(`https://api.foursquare.com/v2/venues/${C2_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
         .then(response => response.json())
         .then(data => newFilteredData[1].extraInfo = data.response.venue.price.message )
-        //.then(data => this.setState({ filtered: newFilteredData }))
+        .then(data => this.setState({ filtered: newFilteredData }))
         .catch(error => console.log('parsing faild',error));
         //Cafe Id C3
         fetch(`https://api.foursquare.com/v2/venues/${C3_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
         .then(response => response.json())
         .then(data => newFilteredData[2].extraInfo = data.response.venue.price.message )
-        //.then(data => this.setState({ filtered: newFilteredData }))
+        .then(data => this.setState({ filtered: newFilteredData }))
         .catch(error => console.log('parsing faild',error));
         //Cafe Id C4
         fetch(`https://api.foursquare.com/v2/venues/${C4_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
         .then(response => response.json())
         .then(data => newFilteredData[3].extraInfo = data.response.venue.price.message )
-        //.then(data => this.setState({ filtered: newFilteredData }))
+        .then(data => this.setState({ filtered: newFilteredData }))
         .catch(error => console.log('parsing faild',error));
         //Cafe Id C5
         fetch(`https://api.foursquare.com/v2/venues/${C5_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
         .then(response => response.json())
         .then(data => newFilteredData[4].extraInfo = data.response.venue.price.message )
-        //.then(data => this.setState({ filtered: newFilteredData }))
+        .then(data => this.setState({ filtered: newFilteredData }))
         .catch(error => console.log('parsing faild',error));
         //Cafe Id C6
         fetch(`https://api.foursquare.com/v2/venues/${C6_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
         .then(response => response.json())
         .then(data => newFilteredData[5].extraInfo = data.response.venue.price.message )
-        //.then(data => this.setState({ filtered: newFilteredData }))
+        .then(data => this.setState({ filtered: newFilteredData }))
         .catch(error => console.log('parsing faild',error));
         //Cafe Id C7
         fetch(`https://api.foursquare.com/v2/venues/${C7_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
         .then(response => response.json())
         .then(data => newFilteredData[6].extraInfo = data.response.venue.price.message )
-        //.then(data => this.setState({ filtered: newFilteredData }))
+        .then(data => this.setState({ filtered: newFilteredData }))
         .catch(error => console.log('parsing faild',error));
-    }
+        }
 
     render (){
         return (
@@ -81,11 +86,12 @@ class ListView extends Component {
                     onChange={(event) => this.filterCafes(event)}                        
                     className="search-cafes" 
                     role="search" 
-                    aria-label="text filter"
+                    aria-labelledby="text filter" tabIndex="1"
                 />
-                <ol> 
+                <ol aria-labelledby="list of cafes" tabIndex="1">
                     {this.state.filtered.map((cafe) => (
-                        <li tabIndex="0" key={cafe.id} onClick={() => this.props.clickedMarker(cafe.name, cafe.id)} style={{cursor: 'pointer'}}>
+                        <li 
+                            tabIndex="1" key={cafe.id} area-labelledby={`View details for ${cafe.name}`} onKeyPress={this.keyPress.bind(cafe.name, cafe.id)} onClick={() => this.props.clickedMarker(cafe.name, cafe.id)} style={{cursor: 'pointer'}}>
                             <h6>{cafe.name }</h6>
                             <p><span className="fa-span"><FontAwesomeIcon icon="money-bill"/> </span>{cafe.extraInfo} </p>
                         </li>
