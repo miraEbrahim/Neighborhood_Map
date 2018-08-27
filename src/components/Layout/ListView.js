@@ -81,7 +81,7 @@ class ListView extends Component {
                     onChange={(event) => this.filterCafes(event)}                        
                     className="search-cafes" 
                     role="search" 
-                    aria-labelledby="search"
+                    aria-label="text filter"
                 />
                 <ol> 
                     {this.state.filtered.map((cafe) => (
