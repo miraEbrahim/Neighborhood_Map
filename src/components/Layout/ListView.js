@@ -27,8 +27,8 @@ class ListView extends Component {
          this.listItem(target,e)
        }
      }
-
     componentWillMount () {
+    
         let newFilteredData = this.state.filtered;
         //Fetch venue pricing range from fourquare using each venues id
         //Foursquare Get Details of a Venue requres venue id for each one seperatly, tried putting them on an array but it didnt accept it
@@ -37,44 +37,44 @@ class ListView extends Component {
         .then(response => response.json())
         .then(data => newFilteredData[0].extraInfo = data.response.venue.price.message )
         .then(data => this.setState({ filtered: newFilteredData }))
-        .catch(error => alert('parsing faild',error));
+        .catch(error => alert('parsing foursquare API data has faild',error));
         //Cafe Id C2
         fetch(`https://api.foursquare.com/v2/venues/${C2_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
         .then(response => response.json())
         .then(data => newFilteredData[1].extraInfo = data.response.venue.price.message )
         .then(data => this.setState({ filtered: newFilteredData }))
-        .catch(error => alert('parsing faild',error));
+        .catch(error => alert('parsing foursquare API data has faild',error));
         //Cafe Id C3
         fetch(`https://api.foursquare.com/v2/venues/${C3_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
         .then(response => response.json())
         .then(data => newFilteredData[2].extraInfo = data.response.venue.price.message )
         .then(data => this.setState({ filtered: newFilteredData }))
-        .catch(error => alert('parsing faild',error));
+        .catch(error => alert('parsing foursquare API data has faild',error));
         //Cafe Id C4
-        fetch(`https://api.foursquare.com/v2/venues/${C4_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
+        fetch(`https://api.foursssuare.com/v2/venues/${C4_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
         .then(response => response.json())
         .then(data => newFilteredData[3].extraInfo = data.response.venue.price.message )
         .then(data => this.setState({ filtered: newFilteredData }))
-        .catch(error => alert('parsing faild',error));
+        .catch(error => alert('parsing foursquare API data has faild',error));
         //Cafe Id C5
         fetch(`https://api.foursquare.com/v2/venues/${C5_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
         .then(response => response.json())
         .then(data => newFilteredData[4].extraInfo = data.response.venue.price.message )
         .then(data => this.setState({ filtered: newFilteredData }))
-        .catch(error => alert('parsing faild',error));
+        .catch(error => alert('parsing foursquare API data has faild',error));
         //Cafe Id C6
         fetch(`https://api.foursquare.com/v2/venues/${C6_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
         .then(response => response.json())
         .then(data => newFilteredData[5].extraInfo = data.response.venue.price.message )
         .then(data => this.setState({ filtered: newFilteredData }))
-        .catch(error => console.log('parsing faild',error));
+        .catch(error => alert('parsing foursquare API data has faild',error));
         //Cafe Id C7
         fetch(`https://api.foursquare.com/v2/venues/${C7_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
         .then(response => response.json())
         .then(data => newFilteredData[6].extraInfo = data.response.venue.price.message )
         .then(data => this.setState({ filtered: newFilteredData }))
-        .catch(error => console.log('parsing faild',error));
-}
+        .catch(error => alert('parsing foursquare API data has faild',error));
+    }
 
     render (){
         return (
