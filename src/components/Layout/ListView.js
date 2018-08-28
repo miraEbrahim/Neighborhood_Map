@@ -91,7 +91,7 @@ class ListView extends Component {
                 <ol aria-labelledby="list of cafes" tabIndex="1">
                     {this.state.filtered.map((cafe) => (
                         <li 
-                            tabIndex="1" key={cafe.id} area-labelledby={`View details for ${cafe.name}`} onKeyPress={this.keyPress.bind(cafe.name, cafe.id)} onClick={() => this.props.clickedMarker(cafe.name, cafe.id)} style={{cursor: 'pointer'}}>
+                            tabIndex="1" key={cafe.id} role="listbox" area-labelledby={`View details for ${cafe.name}`} onKeyPress={this.keyPress.bind(cafe.name, cafe.id)} onClick={() => this.props.clickedMarker(cafe.name, cafe.id)} style={{cursor: 'pointer'}}>
                             <h6>{cafe.name }</h6>
                             <p><span className="fa-span"><FontAwesomeIcon icon="money-bill"/> </span>{cafe.extraInfo} </p>
                         </li>
