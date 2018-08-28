@@ -115,7 +115,7 @@ class App extends React.Component {
         <div className="app-header"><h2 className="header-title"> Putney Neighbourhood's Cafes </h2></div>
         <div className="off-canvas">
           <input id="hamburger" type='checkbox' className="hamburger-checkbox" />
-          <label className="hamburger"  htmlFor="hamburger" role="button" aria-label="toggle-bars"><FontAwesomeIcon icon="bars"/></label>
+          <label className="hamburger" tabIndex="1" htmlFor="hamburger" role="button" aria-label="toggle-bars"><FontAwesomeIcon icon="bars"/></label>
           <nav id="list-toggle" role="list" className="sidebar" onClick={this.toggleList}>
             <div className="list-view">
               <ListView cafes={this.state.cafes} clickedMarker={this.clickedMarker} filterMarker={this.filterMarker}  />

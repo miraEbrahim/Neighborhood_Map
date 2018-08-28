@@ -25,4 +25,3 @@ we have used Google Map JavaScript API to show the map and fetch venue pricing f
 Application is available offline in production mood, not in development mood. The service worker is only enabled in the production environment. It's recommended that you do not enable an offline-first service worker in a development environment.
 If you need to test your offline-first service worker locally, build the application (using npm run build) and run a simple http server from your build directory.
 
-##Build 
