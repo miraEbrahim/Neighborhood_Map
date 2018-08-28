@@ -22,6 +22,7 @@ class ListView extends Component {
         });
         this.props.filterMarker(filteredArray);
     }
+
     keyPress(target,item,e) {
         if(item.charCode===13){
          this.listItem(target,e)
@@ -51,7 +52,7 @@ class ListView extends Component {
         .then(data => this.setState({ filtered: newFilteredData }))
         .catch(error => alert('parsing foursquare API data has faild',error));
         //Cafe Id C4
-        fetch(`https://api.foursssuare.com/v2/venues/${C4_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
+        fetch(`https://api.foursquare.com/v2/venues/${C4_ID}?&oauth_token=${AUTH_TOKEN}&v=${VERSION}`)
         .then(response => response.json())
         .then(data => newFilteredData[3].extraInfo = data.response.venue.price.message )
         .then(data => this.setState({ filtered: newFilteredData }))

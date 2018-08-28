@@ -63,7 +63,8 @@ class App extends React.Component {
                   </div>
                 `
               );
-              infowindow.open(map, marker);
+              infowindow.open(map,marker, marker.setAnimation(window.google.maps.Animation.BOUNCE));//Add the aniamtion when the marker is clicked
+              setTimeout(() => {marker.setAnimation(null);}, 400)
             };
           })(marker, count));
           markerArray.push({id: cafes[count].id, marker: marker});
@@ -77,7 +78,6 @@ class App extends React.Component {
       this.setState({requestWasSuccessful: false});
 
     }
-    
   }
 
   filterMarker = (filteredList) => {
