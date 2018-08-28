@@ -86,9 +86,9 @@ class ListView extends Component {
                     onChange={(event) => this.filterCafes(event)}                        
                     className="search-cafes" 
                     role="search" 
-                    aria-labelledby="text filter" tabIndex="1"
+                    aria-label="text filter" tabIndex="1"
                 />
-                <ol aria-labelledby="list of cafes" tabIndex="1">
+                <ol aria-label="list of cafes" tabIndex="1">
                     {this.state.filtered.map((cafe) => (
                         <li 
                             tabIndex="1" key={cafe.id} role="listbox" area-labelledby={`View details for ${cafe.name}`} onKeyPress={this.keyPress.bind(cafe.name, cafe.id)} onClick={() => this.props.clickedMarker(cafe.name, cafe.id)} style={{cursor: 'pointer'}}>
